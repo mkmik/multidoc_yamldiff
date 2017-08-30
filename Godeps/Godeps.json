@@ -1,0 +1,35 @@
+{
+	"ImportPath": "github.com/mmikulicic/multidoc_yamldiff",
+	"GoVersion": "go1.9",
+	"GodepVersion": "v79",
+	"Deps": [
+		{
+			"ImportPath": "github.com/ghodss/yaml",
+			"Rev": "04f313413ffd65ce25f2541bfd2b2ceec5c0908c"
+		},
+		{
+			"ImportPath": "github.com/golang/glog",
+			"Rev": "23def4e6c14b4da8ac2ed8007337bc5eb5007998"
+		},
+		{
+			"ImportPath": "github.com/juju/errors",
+			"Rev": "8234c829496aaeae67c5c71235a2cbcc289e960a"
+		},
+		{
+			"ImportPath": "github.com/kylelemons/godebug/diff",
+			"Rev": "a616ab194758ae0a11290d87ca46ee8c440117b0"
+		},
+		{
+			"ImportPath": "github.com/kylelemons/godebug/pretty",
+			"Rev": "a616ab194758ae0a11290d87ca46ee8c440117b0"
+		},
+		{
+			"ImportPath": "gopkg.in/yaml.v2",
+			"Rev": "cd8b52f8269e0feb286dfeef29f8fe4d5b397e0b"
+		},
+		{
+			"ImportPath": "k8s.io/apimachinery/pkg/util/yaml",
+			"Rev": "dc1f89aff9a7509782bde3b68824c8043a3e58cc"
+		}
+	]
+}
