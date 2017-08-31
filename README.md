@@ -1,4 +1,5 @@
-= Multidoc yamldiff
+Multidoc yamldiff
+=================
 
 A CLI tool to diff two YAML/JSON files.
 
@@ -6,28 +7,28 @@ Inspired by https://github.com/sahilm/yamldiff but tries to work with multi-docu
 
 It’s meant to be useful while diffing kubernetes yaml configs.
 
-= Installation
+Installation
+------------
 
 ```
 go get github.com/mmikulicic/multidoc_yamldiff
 ```
 
-= Usage
+Usage
+-----
 
 ```
 multidoc_yamldiff old.yaml new.yaml
 ```
 
-= Caveats
+Caveats
+-------
 
 This tool tries to deal with unordered documents but it’s not very smart: documents are simply sorted
 by their (canonicalized) content. This means that it might work when there are small diffs at the tail of the yaml objects.
 This seems to hold true for many changes to kubernetes object for which this tool has been designed.
 
 In particular it can tell you for sure when two document sets are not different.
-
-We also currently don’t attempt to make trim out irrelevant parts of the diff context
-(the diffing library we use just outputs the whole thing).
 
 Also, the output of the diff is not yaml.
 
