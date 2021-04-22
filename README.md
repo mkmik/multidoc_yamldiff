@@ -1,4 +1,4 @@
-#Multidoc yamldiff
+# Multidoc yamldiff
 
 A CLI tool to diff two YAML/JSON files.
 
