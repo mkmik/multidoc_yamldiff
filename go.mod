@@ -1,4 +1,4 @@
-module github.com/mmikulicic/multidoc_yamldiff
+module github.com/mkmik/multidoc_yamldiff
 
 require (
 	github.com/ghodss/yaml v0.0.0-20161207003320-04f313413ffd // indirect
