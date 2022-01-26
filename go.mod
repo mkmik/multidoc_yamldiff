@@ -6,7 +6,7 @@ require (
 	github.com/golang/glog v1.0.0
 	github.com/juju/errors v0.0.0-20210818161939-5560c4c073ff
 	github.com/kylelemons/godebug v1.1.0
-	k8s.io/apimachinery v0.23.1
+	k8s.io/apimachinery v0.23.3
 )
 
 require (
@@ -95,8 +95,8 @@ require (
 	k8s.io/gengo v0.0.0-20210813121822-485abfe95c7c // indirect
 	k8s.io/klog/v2 v2.30.0 // indirect
 	k8s.io/kube-openapi v0.0.0-20211115234752-e816edb12b65 // indirect
-	k8s.io/utils v0.0.0-20210930125809-cb0fa318a74b // indirect
+	k8s.io/utils v0.0.0-20211116205334-6203023598ed // indirect
 	sigs.k8s.io/json v0.0.0-20211020170558-c049b76a60c6 // indirect
-	sigs.k8s.io/structured-merge-diff/v4 v4.1.2 // indirect
+	sigs.k8s.io/structured-merge-diff/v4 v4.2.1 // indirect
 	sigs.k8s.io/yaml v1.2.0 // indirect
 )
