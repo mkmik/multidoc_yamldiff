@@ -6,7 +6,7 @@ require (
 	github.com/golang/glog v1.0.0
 	github.com/juju/errors v0.0.0-20220203013757-bd733f3c86b9
 	github.com/kylelemons/godebug v1.1.0
-	k8s.io/apimachinery v0.23.3
+	k8s.io/apimachinery v0.23.4
 )
 
 require (
