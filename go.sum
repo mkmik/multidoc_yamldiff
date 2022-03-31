@@ -78,6 +78,8 @@ github.com/juju/errors v0.0.0-20220324005906-d8c5072c94ab h1:tDk/iwzLX311+QPYXSj
 github.com/juju/errors v0.0.0-20220324005906-d8c5072c94ab/go.mod h1:jMGj9DWF/qbo91ODcfJq6z/RYc3FX3taCBZMCcpI4Ls=
 github.com/juju/errors v0.0.0-20220328032053-6664a20db930 h1:NavIEjCH2y/svEZ8mOSnFofpFeiAQTzUpByc28R6Hhc=
 github.com/juju/errors v0.0.0-20220328032053-6664a20db930/go.mod h1:jMGj9DWF/qbo91ODcfJq6z/RYc3FX3taCBZMCcpI4Ls=
+github.com/juju/errors v0.0.0-20220331221717-b38fca44723b h1:AxFeSQJfcm2O3ov1wqAkTKYFsnMw2g1B4PkYujfAdkY=
+github.com/juju/errors v0.0.0-20220331221717-b38fca44723b/go.mod h1:jMGj9DWF/qbo91ODcfJq6z/RYc3FX3taCBZMCcpI4Ls=
 github.com/juju/loggo v0.0.0-20170605014607-8232ab8918d9/go.mod h1:vgyd7OREkbtVEN/8IXZe5Ooef3LQePvuBm9UWj6ZL8U=
 github.com/juju/testing v0.0.0-20180517134105-72703b1e95eb/go.mod h1:63prj8cnj0tU0S9OHjGJn+b1h0ZghCndfnbQolrYTwA=
 github.com/kisielk/errcheck v1.5.0/go.mod h1:pFxgyoBC7bSaBwPgfKdkLd5X25qrDl4LWUI2bnpBCr8=
