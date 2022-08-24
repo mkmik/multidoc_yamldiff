@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	github.com/golang/glog v1.0.0
-	github.com/juju/errors v0.0.0-20220331221717-b38fca44723b
+	github.com/juju/errors v1.0.0
 	github.com/kylelemons/godebug v1.1.0
 	k8s.io/apimachinery v0.25.0
 )
