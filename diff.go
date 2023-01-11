@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"io"
 	"os"
-	"sort"
 	"strings"
 
 	"k8s.io/apimachinery/pkg/util/yaml"
@@ -30,11 +29,11 @@ func usage() {
 	os.Exit(1)
 }
 
-type documents []interface{}
+type documents map[string]interface{}
 
-func (d documents) Len() int           { return len(d) }
-func (d documents) Less(i, j int) bool { return pretty.Sprint(d[i]) < pretty.Sprint(d[j]) }
-func (d documents) Swap(i, j int)      { d[i], d[j] = d[j], d[i] }
+//func (d documents) Len() int           { return len(d) }
+//func (d documents) Less(i, j int) bool { return pretty.Sprint(d[i]) < pretty.Sprint(d[j]) }
+//func (d documents) Swap(i, j int)      { d[i], d[j] = d[j], d[i] }
 
 func unmarshal(fname string) (documents, error) {
 	f, err := os.Open(fname)
@@ -43,18 +42,29 @@ func unmarshal(fname string) (documents, error) {
 	}
 	defer f.Close()
 
-	var res documents
+	res := documents{}
 
 	d := yaml.NewYAMLOrJSONDecoder(f, 1024)
 	for {
-		var v interface{}
+		var v map[string]interface{}
 		if err := d.Decode(&v); err != nil {
 			if err == io.EOF {
 				break
 			}
 			return nil, errors.Trace(err)
 		}
-		res = append(res, v)
+		_, err := extractName(v)
+		if err != nil {
+			return nil, errors.Trace(err)
+		}
+		name, err := extractName(v)
+		if err != nil {
+			return nil, errors.Trace(err)
+		}
+		if _, ok := res[name]; ok {
+			return nil, errors.Trace(fmt.Errorf("Duplicate sub-document"))
+		}
+		res[name] = v
 	}
 	return res, nil
 }
@@ -113,12 +123,29 @@ func run(fname1, fname2 string) error {
 		return errors.Trace(err)
 	}
 
-	sort.Sort(v1)
-	sort.Sort(v2)
-
 	fmt.Println(compact(pretty.Compare(v1, v2), *context))
 
 	return nil
+}
+
+func extractName(doc map[string]interface{}) (string, error) {
+	apiVersion, ok := doc["apiVersion"].(string)
+	if !ok {
+		return "", fmt.Errorf("no apiVersion in doc")
+	}
+	kind, ok := doc["kind"].(string)
+	if !ok {
+		return "", fmt.Errorf("no kind in doc")
+	}
+	name, ok := doc["metadata"].(map[string]interface{})["name"].(string)
+	if !ok {
+		return "", fmt.Errorf("no name in doc")
+	}
+	namespace, ok := doc["metadata"].(map[string]interface{})["namespace"].(string)
+	if !ok {
+		namespace = "NOTFOUND"
+	}
+	return fmt.Sprintf("%s %s %s/%s", apiVersion, kind, namespace, name), nil
 }
 
 func main() {
